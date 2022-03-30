@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "nOBpHlLbx/pFrBz+IQG4PkNAdWuyQ++GGlbJQyyCTlYkczA5hpvNL0/Tz9ZOhCGNdt7hYX1x3RolhEqCq6H3fQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Lautaro\\Desktop\\Brazor prueba\\Brazor\\Brazor\\Brazor.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Lautaro\\.nuget\\packages\\system.net.http.json\\5.0.0\\system.net.http.json.5.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

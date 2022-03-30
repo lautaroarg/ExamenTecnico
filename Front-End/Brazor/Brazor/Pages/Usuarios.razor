@@ -1,0 +1,46 @@
+﻿@page "/usuarios"
+@using System.Net.Http
+@using System.Net.Http.Json
+@using Brazor.Data
+@inject HttpClient Http
+
+<h3>Lista de usuarios</h3>
+
+<div class="row">
+    <div class="col-12 text-center">
+        <a href="UsuarioForm" class="btn btn-success">Nuevo</a>
+    </div>
+</div>
+
+<table class="table">
+    <tr>
+        <th>Id</th>
+        <th>Usuario</th>
+        <th>Nombre</th>
+        <th>Email</th>
+        <th>Telefono</th>
+    </tr>
+  @if(oRespuesta.Data  != null)
+            {
+      @foreach (var oElement in oRespuesta.Data) { 
+        <tr>
+            <td>@oElement.IdUsuario</td>
+            <td>@oElement.UserName</td>
+            <td>@oElement.Nombre</td>
+            <td>@oElement.Email</td>
+            <td>@oElement.Telefono</td>
+            <td>
+                <a href="/UsuarioForm/@oElement.IdUsuario"  class="btn btn-primary">Editar</a>
+                <a href="/eliminarusuario/@oElement.IdUsuario" class="btn btn-danger">Eliminar</a>
+            </td>
+        </tr>}  
+
+            }
+</table>
+@code {
+    public string Url = "/usuarios";
+    public Data.Respuesta<List<Usuario>> oRespuesta = new Data.Respuesta<List<Usuario>>();
+    protected override async Task OnInitializedAsync() =>
+        oRespuesta = await Http.GetFromJsonAsync<Data.Respuesta<List<Usuario>>>(Url);
+
+}
